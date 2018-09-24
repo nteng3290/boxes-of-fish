@@ -1,15 +1,14 @@
 @import 'partials/normalise';
+@import 'partials/variables';
+@import 'partials/mixins';
 @import 'partials/typography';
 @import 'partials/logo';
 @import 'partials/login';
 @import 'partials/social';
 
 #app{
-    display: flex;
-    flex-direction: column;
-    align-content: right;
-    justify-content: space-evenly;
-    height: 100vh;
+    @include flex(column, flex-start, space-evenly);
+    transition: 1s all;
     @media (min-width: 768px) {
         flex-direction: row-reverse;
     }
