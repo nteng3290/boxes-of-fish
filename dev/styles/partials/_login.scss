@@ -1,0 +1,52 @@
+.login-screen{
+    width: 100%;
+    background: $secondary_color;
+    @include flex( column, flex-start, center);
+    @media (min-width: 768px) {
+        width: 50%;
+        height: 100vh;
+    }
+}
+form {
+    @include flex( column, flex-start, center);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.4);
+    border-radius: 5px 5px;
+    width:300px;
+    margin: 0 auto;
+    input{
+        width: 100%;
+        border: none;
+        text-align: center;
+        color: $primary_color;
+        &::placeholder{
+            color: $tertiary_color;
+        }
+    }
+    input:first-of-type{
+        border-radius: 5px 5px 0 0;
+        border-bottom: 2px solid $primary_color;
+    }
+}
+input[type="checkbox"]{
+    display: none;
+}
+#remember{
+    & label::before{
+        content:"";
+        width: 5px;
+        height: 5px;
+        border: 1px solid $primary_color;
+    }
+}
+button{
+    background: $primary_color;
+    color: white;
+    border:none;
+    border-radius: 0 0 5px 5px;
+    min-height: 40px;
+    width: 100%;
+    .load-icon{
+        transform: rotate(360deg);
+        transition: 1s all;
+    }
+}
