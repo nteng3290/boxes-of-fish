@@ -1,41 +1,102 @@
 .login-screen{
     width: 100%;
-    background: $secondary_color;
-    @include flex( column, flex-start, center);
+    background: $secondary_light;
+    height: 50vh;
+    position: relative;
+    @include flex( column, center, center);
+    @media only screen 
+    and (device-width : 375px) 
+    and (device-height : 812px) {
+        height: 60vh;
+    }
     @media (min-width: 768px) {
         width: 50%;
         height: 100vh;
     }
 }
 form {
+    position: absolute;
+    top: -80px;
+    left: 0;
+    right: 0;
     @include flex( column, flex-start, center);
     box-shadow: 0 3px 10px rgba(0,0,0,0.4);
     border-radius: 5px 5px;
-    width:300px;
+    width:280px;
     margin: 0 auto;
+    @media (min-width: 768px) {
+        position: relative;
+        width:300px;
+    }
     input{
         width: 100%;
+        height: 40px;
         border: none;
         text-align: center;
         color: $primary_color;
         &::placeholder{
-            color: $tertiary_color;
+            color: $secondary_dark;
+            font-weight: bold;
+        }
+        @media (min-width: 768px) {
+            height: 50px;
         }
     }
     input:first-of-type{
         border-radius: 5px 5px 0 0;
-        border-bottom: 2px solid $primary_color;
+        border-bottom: 1px solid $secondary_dark;
+    }
+}
+.error{
+    border: 2px solid red;
+    color: red;
+}
+.error-msg-container{
+    position: absolute;
+    width: 210px;
+    top: 45px;
+    @media (min-width: 768px) {
+        top: 350px;
+    }
+    .error-msg{
+        color: red;
     }
 }
 input[type="checkbox"]{
     display: none;
 }
-#remember{
-    & label::before{
+.check-rmb{
+    @include flex(row, flex-start, flex-start);
+}
+label{
+    color: $primary_color;
+    font-weight: bold;
+    margin-left:12px;
+    margin-bottom: 50px;
+    cursor: pointer;
+    @media (min-width: 768px) {
+        margin-bottom: 0;
+    }
+}
+span{
+    width: 18px;
+    height: 18px;
+    border: 1.5px solid $primary_color;
+    border-radius: 3px;
+    position: relative;
+}
+
+input[type="checkbox"]:checked ~ span{
+    &::before{
         content:"";
-        width: 5px;
-        height: 5px;
-        border: 1px solid $primary_color;
+        display: block;
+        position: absolute;
+        left: 2px;
+        top: 2px;
+        width: 11px;
+        height: 11px;
+        background: $primary_color;
+        border-radius: 2px;
     }
 }
 button{
@@ -45,8 +106,17 @@ button{
     border-radius: 0 0 5px 5px;
     min-height: 40px;
     width: 100%;
+    font-weight: bold;
+    @media (min-width: 768px) {
+        height: 50px;
+        width: 300px;
+    }
+    svg{
+        width: 30px;
+    }
     .load-icon{
         transform: rotate(360deg);
         transition: 1s all;
+        animation: loading 3s infinite;
     }
 }

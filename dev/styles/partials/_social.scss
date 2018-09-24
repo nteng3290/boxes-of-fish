@@ -1,7 +1,33 @@
 .social-media-container{
-    display: flex;
-    flex-direction: row;
+    @include flex(column, center, center);
+    position: absolute;
+    bottom: 30px;
+    @media (min-width: 768px) {
+        bottom: 50px;
+    }
+    p{
+        color: $primary_color;
+        font-style: italic;
+        font-weight: bold;
+    }
 }
-svg{
-    width: 30px;
+.social-icons{
+    @include flex(row, center, space-between);
+    a{
+        width: 35px;
+        height: 35px;
+        background: $secondary_color;
+        padding: 8px;
+        border: 1.5px solid transparent;
+        border-radius: 50px;
+        margin-right: 20px;
+        transition: 0.5s all;
+    }
+    a:last-of-type{
+        margin-right: 0;
+    }
+    a:hover{
+        border: 1.5px solid $primary_color;
+        border-radius: 50px;
+    }
 }

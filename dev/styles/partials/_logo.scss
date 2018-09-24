@@ -1,18 +1,45 @@
-.logo-screen{
-    width: 100%;
-    background: $primary_color;
-    @include flex (column, center, flex-start);
-    @media (min-width: 768px) {
-        width: 50%;
-        height: 100vh;
-        padding-top: 150px;
-    }
-}
 .logo-icon{
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     border-radius: 10px;
-    padding: 10px;
-    border: 2px solid $primary_color;
-    background: $secondary_color;
+    padding: 5px;
+    position: relative;
+    z-index: 10;
+    @media (min-width: 768px) {
+        width: 80px;
+        height: 80px;
+    }
+    svg{
+        width: 100%;
+        z-index: 15;
+    }
+    .bg {
+        background: $secondary_light;
+        width: 60px;
+        height: 60px;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        border-radius: 10px;
+        z-index: -1;
+         @media (min-width: 768px) {
+            width: 80px;
+            height: 80px;
+        }
+    }
+    &::before{
+        content: "";
+        width: 65px;
+        height: 65px;
+        position: absolute;
+        background: linear-gradient(45deg, $primary_dark, $secondary_light);
+        top: -3px;
+        left: -3px;
+        z-index: -5;
+        border-radius: 11px;
+         @media (min-width: 768px) {
+            width: 86px;
+            height: 86px;
+        }
+    }
 }

@@ -1,0 +1,38 @@
+.logo-screen{
+    height: 50vh;
+    padding: 50px;
+    @media only screen 
+    and (device-width : 375px) 
+    and (device-height : 812px) {
+        padding: 100px;
+        height: 40vh;
+    }
+}
+
+.success-screen{
+    height: 50vh;
+    position: relative;
+    @media only screen 
+    and (device-width : 375px) 
+    and (device-height : 812px) {
+        height: 60vh;
+    }
+    button{
+        background: white;
+        color: $primary_color;
+        width: 200px;
+        border-radius: 30px;
+        margin-top: 200px;
+    }
+}
+.success-screen,
+.logo-screen{
+    width: 100%;
+    background: $primary_color;
+    @include flex (column, center, flex-start);
+    @media (min-width: 768px) {
+        width: 50%;
+        height: 100vh;
+        padding-top: 150px;
+    }
+}

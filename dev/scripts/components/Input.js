@@ -1,18 +1,21 @@
 import React from 'react';
 
-const Button = (props) => {
+const Input = (props, ref) => {
     return (
         <React.Fragment>
-            {props.text? 
+            <input type={props.type} placeholder={props.name} id={props.name} />
+            {/* <input type={props.type} placeholder={props.name} id={props.name} ref={realDomInput} /> */}
+            {
+                props.text?
                 <React.Fragment>
-                    <input type={props.type} placeholder={props.name} id={props.name} />
+                    <span className="fill"></span>
                     <label htmlFor={props.name}>{props.text}</label>
                 </React.Fragment>
                 :
-                <input type={props.type} placeholder={props.name} id={props.name} />
+                null
             }
         </React.Fragment>
     )
 }
 
-export default Button;
+export default Input;

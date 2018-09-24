@@ -2,13 +2,18 @@
 @import 'partials/variables';
 @import 'partials/mixins';
 @import 'partials/typography';
+@import 'partials/loading';
 @import 'partials/logo';
 @import 'partials/login';
+@import 'partials/screens';
 @import 'partials/social';
+
+html{
+    font-family: $font-style;
+}
 
 #app{
     @include flex(column, flex-start, space-evenly);
-    transition: 1s all;
     @media (min-width: 768px) {
         flex-direction: row-reverse;
     }
